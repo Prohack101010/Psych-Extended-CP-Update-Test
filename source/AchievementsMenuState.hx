@@ -44,7 +44,7 @@ class AchievementsMenuState extends MusicBeatState
 		add(camFollow);
 
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
-		menuBG.antialiasing = ClientPrefs.data.globalAntialiasing;
+		menuBG.antialiasing = ClientPrefs.antialiasing;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
@@ -57,7 +57,7 @@ class AchievementsMenuState extends MusicBeatState
 		options.sort(sortByID);
 		for (option in options)
 		{
-			var hasAntialias:Bool = ClientPrefs.data.globalAntialiasing;
+			var hasAntialias:Bool = ClientPrefs.antialiasing;
 			var graphic = null;
 			if(option.unlocked)
 			{
@@ -366,7 +366,7 @@ class ResetAchievementSubstate extends MusicBeatSubstate
 			option.name = state.nameText.text = '???';
 			if(option.maxProgress > 0) state.progressTxt.text = '0 / ' + option.maxProgress;
 			state.grpOptions.members[state.curSelected].loadGraphic(Paths.image('achievements/lockedachievement'));
-			state.grpOptions.members[state.curSelected].antialiasing = ClientPrefs.data.globalAntialiasing;
+			state.grpOptions.members[state.curSelected].antialiasing = ClientPrefs.antialiasing;
 
 			if(state.progressBar.visible)
 			{

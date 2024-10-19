@@ -244,7 +244,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			notes.animation.play('idle');
 			notes.scale.set(0.8, 0.8);
 			notes.x += 700;
-			notes.antialiasing = ClientPrefs.data.globalAntialiasing;
+			notes.antialiasing = ClientPrefs.antialiasing;
 			grpNote.add(notes);
 			
 			var newShader:ColorSwap = new ColorSwap();

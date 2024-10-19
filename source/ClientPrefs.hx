@@ -24,13 +24,7 @@ class SaveVariables {
     public var marvelousWindow:Int = 15;
 	public var middleScroll:Bool = false;
 	public var opponentStrums:Bool = true;
-	public var flashing:Bool = true;
-	public var globalAntialiasing:Bool = true;
 	public var noteSplashes:Bool = true;
-	public var lowQuality:Bool = false;
-	public var shaders:Bool = true;
-	public var cursing:Bool = true;
-	public var violence:Bool = true;
 	public var camZooms:Bool = true;
 	public var hideHud:Bool = false;
 	public var noteOffset:Int = 0;
@@ -41,21 +35,15 @@ class SaveVariables {
 	public var scoreZoom:Bool = true;
 	public var noReset:Bool = false;
 	public var healthBarAlpha:Float = 1;
-	public var controllerMode:Bool = #if mobile true #else false #end;
 	public var hitsoundVolume:Float = 0;
 	public var pauseMusic:String = 'Tea Time';
-	public var checkForUpdates:Bool = true;
 	public var comboStacking = true;
 	//Psych Extended
 	public var touchmenus:Bool = #if UNUSED_TOUCHMENUS true #else false #end;
 	public var Modpack:Bool = false;
 	public var IndieCrossMenus:Bool = #if (INDIECROSS_FORCED || INDIECROSS_ASSETS) true #else false #end;
 	//Mobile
-	public var wideScreen:Bool = false;
 	public var mobileC:Bool = true; //better than using if mobile
-	#if android
-	public var storageType:String = "EXTERNAL_DATA";
-	#end
 	//VirtualPad
 	public var virtualpadType:String = "New";
 	public var VirtualPadSkin:String = 'original';
@@ -111,6 +99,18 @@ class ClientPrefs {
 	public static var data:SaveVariables = null;
 	public static var showFPS:Bool = true;
 	public static var framerate:Int = 60;
+	public static var flashing:Bool = true;
+	public static var antialiasing:Bool = true;
+	public static var lowQuality:Bool = false;
+	public static var shaders:Bool = true;
+	public static var cursing:Bool = true;
+	public static var violence:Bool = true;
+	public static var controllerMode:Bool = #if mobile true #else false #end;
+	public static var checkForUpdates:Bool = true;
+	public static var wideScreen:Bool = false;
+	#if android
+	public var storageType:String = "EXTERNAL_DATA";
+	#end
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -151,6 +151,16 @@ class ClientPrefs {
 		}
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.framerate = framerate;
+		FlxG.save.data.flashing = flashing;
+		FlxG.save.data.antialiasing = antialiasing;
+		FlxG.save.data.lowQuality = lowQuality;
+		FlxG.save.data.shaders = shaders;
+		FlxG.save.data.controllerMode = controllerMode;
+		FlxG.save.data.checkForUpdates = checkForUpdates;
+		FlxG.save.data.wideScreen = wideScreen;
+		#if android
+		FlxG.save.data.storageType = storageType;
+		#end
 		#if ACHIEVEMENTS_ALLOWED Achievements.save(); #end
 		FlxG.save.flush();
 
@@ -189,6 +199,23 @@ class ClientPrefs {
 				FlxG.updateFramerate = framerate;
 			}
 		}
+		
+		if(FlxG.save.data.flashing != null)
+			flashing = FlxG.save.data.flashing;
+		if(FlxG.save.data.antialiasing != null)
+			antialiasing = FlxG.save.data.antialiasing;
+		if(FlxG.save.data.lowQuality != null)
+			lowQuality = FlxG.save.data.lowQuality;
+		if(FlxG.save.data.shaders != null)
+			shaders = FlxG.save.data.shaders;
+		if(FlxG.save.data.controllerMode != null)
+			controllerMode = FlxG.save.data.controllerMode;
+		if(FlxG.save.data.wideScreen != null)
+			wideScreen = FlxG.save.data.wideScreen;
+		#if android
+		if(FlxG.save.data.storageType != null)
+			storageType = FlxG.save.data.storageType;
+		#end
 
 		if(FlxG.save.data.gameplaySettings != null) {
 			var savedMap:Map<String, Dynamic> = FlxG.save.data.gameplaySettings;
@@ -201,6 +228,8 @@ class ClientPrefs {
 			FlxG.sound.volume = FlxG.save.data.volume;
 		if (FlxG.save.data.mute != null)
 			FlxG.sound.muted = FlxG.save.data.mute;
+		if (FlxG.save.data.checkForUpdates != null)
+			checkForUpdates = FlxG.save.data.checkForUpdates;
 
 		// controls on a separate save file
 		var save:FlxSave = new FlxSave();

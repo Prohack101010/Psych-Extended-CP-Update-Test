@@ -64,7 +64,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.data.globalAntialiasing;
+		bg.antialiasing = ClientPrefs.antialiasing;
 		add(bg);
 
 		// avoids lagspikes while scrolling through menus!
@@ -389,7 +389,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				//notes.visible = true;
 				notes.scale.set(0.8, 0.8);
 				notes.x += 700;
-				notes.antialiasing = ClientPrefs.data.globalAntialiasing;
+				notes.antialiasing = ClientPrefs.antialiasing;
 				grpNote.add(notes);
 				
 				var newShader:ColorSwap = new ColorSwap();

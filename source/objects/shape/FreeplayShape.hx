@@ -103,7 +103,7 @@ class SpecRect extends FlxSprite //freeplay bg rect
         resizedBitmapData.draw(lineBitmap);
 
         pixels = resizedBitmapData;
-        antialiasing = ClientPrefs.data.globalAntialiasing;
+        antialiasing = ClientPrefs.antialiasing;
     }
 }
 
@@ -114,7 +114,7 @@ class SpecRectBG extends FlxSprite //freeplay bg rect
         super(X, Y);
 		
         loadGraphic(drawRect());
-        antialiasing = ClientPrefs.data.globalAntialiasing;
+        antialiasing = ClientPrefs.antialiasing;
 	}
 
 	function drawRect():BitmapData {
@@ -171,7 +171,7 @@ class InfoText extends FlxSpriteGroup //freeplay info
 
         var text:FlxText = new FlxText(0, 0, 0, texts, 18);
 		text.font =  Paths.font('montserrat.ttf');	
-        text.antialiasing = ClientPrefs.data.globalAntialiasing;    		
+        text.antialiasing = ClientPrefs.antialiasing;    		
         add(text);
         
         BlackBG = new Rect(130, text.height / 2 - 3, FlxG.width * 0.26, 5, 5, 5, FlxColor.WHITE, 0.6);
@@ -182,11 +182,11 @@ class InfoText extends FlxSpriteGroup //freeplay info
 
         dataText = new FlxText(490, 0, 0, Std.string(data), 18);
 		dataText.font =  Paths.font('montserrat.ttf');	
-        dataText.antialiasing = ClientPrefs.data.globalAntialiasing;    		
+        dataText.antialiasing = ClientPrefs.antialiasing;    		
         add(dataText);
 
         data = 0;
-        antialiasing = ClientPrefs.data.globalAntialiasing;
+        antialiasing = ClientPrefs.antialiasing;
     }
 
     private function set_data(value:Float):Float
@@ -266,7 +266,7 @@ class MusicLine extends FlxSpriteGroup
         timeDis = new FlxText(0, 20, 0, '0', 18);
 		timeDis.font =  Paths.font('montserrat.ttf');	
         timeDis.alignment = LEFT;  	    		
-        timeDis.antialiasing = ClientPrefs.data.globalAntialiasing;
+        timeDis.antialiasing = ClientPrefs.antialiasing;
         add(timeDis);
 
         timeAddRect = new MusicRect(410, 23, '+1S');
@@ -282,13 +282,13 @@ class MusicLine extends FlxSpriteGroup
         timeMaxDis = new FlxText(0, 20, 0, '0', 18);
 		timeMaxDis.font =  Paths.font('montserrat.ttf');	  
         timeMaxDis.alignment = RIGHT;  	
-        timeMaxDis.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        timeMaxDis.antialiasing = ClientPrefs.antialiasing;	
         add(timeMaxDis);
 
         playRate = new FlxText(0, 20, 0, '1', 18);
 		playRate.font =  Paths.font('montserrat.ttf');	
         timeDis.alignment = CENTER;    		
-        playRate.antialiasing = ClientPrefs.data.globalAntialiasing;
+        playRate.antialiasing = ClientPrefs.antialiasing;
         add(playRate);
         playRate.x += width / 2 - playRate.width / 2;
 
@@ -361,7 +361,7 @@ class MusicRect extends FlxSpriteGroup
 
         display = new FlxText(0, 0, 0, text, 15);
 		display.font =  Paths.font('montserrat.ttf');		    		
-        display.antialiasing = ClientPrefs.data.globalAntialiasing;
+        display.antialiasing = ClientPrefs.antialiasing;
         add(display);
         display.x += bg.width / 2 - display.width / 2;
         display.y += bg.height / 2 - display.height / 2;
@@ -406,13 +406,13 @@ class ExtraTopRect extends FlxSpriteGroup
 		
         text = new FlxText(textOffset, 0, 0, texts, 17);
 		text.font =  Paths.font('montserrat.ttf'); 	
-        text.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        text.antialiasing = ClientPrefs.antialiasing;	
 
         background = new FlxSprite(0, 0);
         background.pixels = drawRect(width, height, roundSize, roundLeft);
         background.alpha = 0.4;
         background.color = color;
-        background.antialiasing = ClientPrefs.data.globalAntialiasing;
+        background.antialiasing = ClientPrefs.antialiasing;
         add(background);
         add(text);
 
@@ -580,12 +580,12 @@ class EventRect extends FlxSpriteGroup //freeplay bottom bg rect
 		
         text = new FlxText(0, 0, 0, texts, 18);
 		text.font =  Paths.font('montserrat.ttf'); 	
-        text.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        text.antialiasing = ClientPrefs.antialiasing;	
 
         background = new FlxSprite().loadGraphic(drawRect(text.width + 60));
         background.color = color;
         background.alpha = 0.5;
-        background.antialiasing = ClientPrefs.data.globalAntialiasing;
+        background.antialiasing = ClientPrefs.antialiasing;
         add(background);
         add(text);
 
@@ -701,7 +701,7 @@ class SongRect extends FlxSpriteGroup //songs member for freeplay
         putBitmapData.draw(drawLine(resizedBitmapData.width, resizedBitmapData.height));
 
         background.pixels = putBitmapData;
-        background.antialiasing = ClientPrefs.data.globalAntialiasing;
+        background.antialiasing = ClientPrefs.antialiasing;
         if (!extraLoad){
             background.color =  FlxColor.fromRGB(songColor[0], songColor[1], songColor[2]);
         }
@@ -717,13 +717,13 @@ class SongRect extends FlxSpriteGroup //songs member for freeplay
         songName = new FlxText(100, 5, 0, songNameS, 25);
         songName.borderSize = 0;
         songName.setFormat(Paths.font('montserrat.ttf'), 25, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, 0xA1393939);
-        songName.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        songName.antialiasing = ClientPrefs.antialiasing;	
         add(songName);
 
         musican = new FlxText(100, 35, 0, 'Musican: ' + songmusican, 15);
         musican.borderSize = 0;
 		musican.setFormat(Paths.font('montserrat.ttf'), 15, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, 0xA1393939);
-        musican.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        musican.antialiasing = ClientPrefs.antialiasing;	
         add(musican);
 
         this.name = songNameS;
@@ -887,13 +887,13 @@ class DiffRect extends FlxSpriteGroup //songs member for freeplay
         diffName = new FlxText(15, 5, 0, name, 20);
         diffName.borderSize = 0;
 		diffName.setFormat(Paths.font('montserrat.ttf'), 20, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, 0xA1393939);
-        diffName.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        diffName.antialiasing = ClientPrefs.antialiasing;	
         add(diffName);
 
         charterName = new FlxText(15, 30, 0, 'Charter: ' + charter, 12);
         charterName.borderSize = 0;
 		charterName.setFormat(Paths.font('montserrat.ttf'), 12, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, 0xA1393939);
-        charterName.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        charterName.antialiasing = ClientPrefs.antialiasing;	
         add(charterName);
 
         //background.pixels.draw(drawLine(background.width, background.height));
@@ -988,7 +988,7 @@ class BackRect extends FlxSpriteGroup //back button
         bg2 = new FlxSprite(-60);
         bg2.pixels = drawRect(width, height);
         bg2.color = color;
-        bg2.antialiasing = ClientPrefs.data.globalAntialiasing;
+        bg2.antialiasing = ClientPrefs.antialiasing;
         add(bg2);
 
         background = new Rect(0, 0, height, height);
@@ -1001,7 +1001,7 @@ class BackRect extends FlxSpriteGroup //back button
 
         button = new FlxSprite(0,0).loadGraphic(Paths.image('menuExtend/FreeplayState/playButton'));
         button.scale.set(0.4, 0.4);
-        button.antialiasing = ClientPrefs.data.globalAntialiasing;
+        button.antialiasing = ClientPrefs.antialiasing;
         button.x += background.width / 2 - button.width / 2;
         button.y += background.height / 2 - button.height / 2;
         button.flipX = true;
@@ -1009,7 +1009,7 @@ class BackRect extends FlxSpriteGroup //back button
 
         text = new FlxText(70, 0, 0, texts, 18);
 		text.font =  Paths.font('montserrat.ttf'); 	
-        text.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        text.antialiasing = ClientPrefs.antialiasing;	
         add(text);
 
         text.x += background.width / 2 - text.width / 2;
@@ -1107,7 +1107,7 @@ class PlayRect extends FlxSpriteGroup //back button
         bg2 = new FlxSprite(50);
         bg2.pixels = drawRect(width, height);
         bg2.color = color;
-        bg2.antialiasing = ClientPrefs.data.globalAntialiasing;
+        bg2.antialiasing = ClientPrefs.antialiasing;
         add(bg2);
 
         background = new Rect(width - height, 0, height, height);
@@ -1120,14 +1120,14 @@ class PlayRect extends FlxSpriteGroup //back button
 
         button = new FlxSprite(width - height,0).loadGraphic(Paths.image('menuExtend/FreeplayState/playButton'));
         button.scale.set(0.4, 0.4);
-        button.antialiasing = ClientPrefs.data.globalAntialiasing;
+        button.antialiasing = ClientPrefs.antialiasing;
         button.x += background.width / 2 - button.width / 2;
         button.y += background.height / 2 - button.height / 2;
         add(button);
 
         text = new FlxText(60, 0, 0, texts, 18);
 		text.font =  Paths.font('montserrat.ttf'); 	
-        text.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        text.antialiasing = ClientPrefs.antialiasing;	
         add(text);
 
         text.x += background.width / 2 - text.width / 2;
@@ -1220,7 +1220,7 @@ class SearchButton extends FlxSpriteGroup
         search.bg.visible = false;
         search.behindText.alpha = 0;
         search.textObj.font =  Paths.font('montserrat.ttf');
-        search.textObj.antialiasing = ClientPrefs.data.globalAntialiasing;
+        search.textObj.antialiasing = ClientPrefs.antialiasing;
         search.textObj.color = FlxColor.WHITE;
         search.caret.color = 0x727E7E7E;
         search.onChange = function(old:String, cur:String) {
@@ -1233,14 +1233,14 @@ class SearchButton extends FlxSpriteGroup
         
         tapText = new FlxText(5, 5, 0, 'Tap here to search', 30);
 		tapText.font =  Paths.font('montserrat.ttf'); 	
-        tapText.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        tapText.antialiasing = ClientPrefs.antialiasing;	
         tapText.alpha = 0.6;
         add(tapText);
 
         itemDis = new FlxText(5, 5 + tapText.height, 0, Std.string(FreeplayStateNOVA.instance.songs.length) + ' maps has found', 18);
         itemDis.color = 0xFF52F9;
 		itemDis.font =  Paths.font('montserrat.ttf'); 	
-        itemDis.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        itemDis.antialiasing = ClientPrefs.antialiasing;	
         add(itemDis);
     }
 
@@ -1266,7 +1266,7 @@ class OrderRect extends FlxSpriteGroup {
 
         bg = new FlxSprite();
         bg.pixels = drawRect(50, 20);
-        bg.antialiasing = ClientPrefs.data.globalAntialiasing;
+        bg.antialiasing = ClientPrefs.antialiasing;
         bg.x += width - bg.width - 15;
         bg.y += height / 2 - bg.height / 2;
         add(bg);
@@ -1278,7 +1278,7 @@ class OrderRect extends FlxSpriteGroup {
 
         var text = new FlxText(0, 0, 0, 'Search results sorted alphabetically from a to z', 18);
 		text.font =  Paths.font('montserrat.ttf'); 	
-        text.antialiasing = ClientPrefs.data.globalAntialiasing;	
+        text.antialiasing = ClientPrefs.antialiasing;	
         add(text);
 
         text.y += height / 2 - text.height / 2;

@@ -225,12 +225,12 @@ class FunkinLua {
 		set('timeBarType', ClientPrefs.data.timeBarType);
 		set('scoreZoom', ClientPrefs.data.scoreZoom);
 		set('cameraZoomOnBeat', ClientPrefs.data.camZooms);
-		set('flashingLights', ClientPrefs.data.flashing);
+		set('flashingLights', ClientPrefs.flashing);
 		set('noteOffset', ClientPrefs.data.noteOffset);
 		set('healthBarAlpha', ClientPrefs.data.healthBarAlpha);
 		set('noResetButton', ClientPrefs.data.noReset);
-		set('lowQuality', ClientPrefs.data.lowQuality);
-		set('shadersEnabled', ClientPrefs.data.shaders);
+		set('lowQuality', ClientPrefs.lowQuality);
+		set('shadersEnabled', ClientPrefs.shaders);
 		set('IndieCrossEnabled', TitleState.IndieCrossEnabled);
 		set('scriptName', scriptName);
 		set('currentModDirectory', Paths.currentModDirectory);
@@ -278,7 +278,7 @@ class FunkinLua {
 
 		// shader shit
 		Lua_helper.add_callback(lua, "initLuaShader", function(name:String) {
-			if(!ClientPrefs.data.shaders) return false;
+			if(!ClientPrefs.shaders) return false;
 
 			#if (!flash && MODS_ALLOWED && sys)
 			return initLuaShader(name);
@@ -289,7 +289,7 @@ class FunkinLua {
 		});
 		
 		Lua_helper.add_callback(lua, "setSpriteShader", function(obj:String, shader:String) {
-			if(!ClientPrefs.data.shaders) return false;
+			if(!ClientPrefs.shaders) return false;
 
 			#if (!flash && MODS_ALLOWED && sys)
 			if(!PlayState.instance.runtimeShaders.exists(shader) && !initLuaShader(shader))
@@ -1880,7 +1880,7 @@ class FunkinLua {
 			{
 				leSprite.loadGraphic(Paths.image(image));
 			}
-			leSprite.antialiasing = ClientPrefs.data.globalAntialiasing;
+			leSprite.antialiasing = ClientPrefs.antialiasing;
 			PlayState.instance.modchartSprites.set(tag, leSprite);
 			leSprite.active = true;
 		});
@@ -1892,7 +1892,7 @@ class FunkinLua {
 			{
 				leSprite.loadGraphic(Paths.assetsimage(image));
 			}
-			leSprite.antialiasing = ClientPrefs.data.globalAntialiasing;
+			leSprite.antialiasing = ClientPrefs.antialiasing;
 			PlayState.instance.modchartSprites.set(tag, leSprite);
 			leSprite.active = true;
 		});
@@ -1902,7 +1902,7 @@ class FunkinLua {
 			var leSprite:ModchartSprite = new ModchartSprite(x, y);
 
 			loadFrames(leSprite, image, spriteType);
-			leSprite.antialiasing = ClientPrefs.data.globalAntialiasing;
+			leSprite.antialiasing = ClientPrefs.antialiasing;
 			PlayState.instance.modchartSprites.set(tag, leSprite);
 		});
 		Lua_helper.add_callback(lua, "makeAnimatedLuaAssetSprite", function(tag:String, image:String, x:Float, y:Float, ?spriteType:String = "sparrow") {
@@ -1911,7 +1911,7 @@ class FunkinLua {
 			var leSprite:ModchartSprite = new ModchartSprite(x, y);
 
 			loadAssetFrames(leSprite, image, spriteType);
-			leSprite.antialiasing = ClientPrefs.data.globalAntialiasing;
+			leSprite.antialiasing = ClientPrefs.antialiasing;
 			PlayState.instance.modchartSprites.set(tag, leSprite);
 		});
 
@@ -3176,7 +3176,7 @@ class FunkinLua {
 	
 	function initLuaShader(name:String)
 	{
-		if(!ClientPrefs.data.shaders) return false;
+		if(!ClientPrefs.shaders) return false;
 
 		#if (!flash && sys)
 		if(PlayState.instance.runtimeShaders.exists(name))
@@ -3639,7 +3639,7 @@ class FunkinLua {
 	    var extraControl:Dynamic = null;
 	    
 	    for (num in 1...5){
-	        if (ClientPrefs.data.extraKeys >= num && key == Reflect.field(ClientPrefs, 'extraKeyReturn' + num)){
+	        if (ClientPrefs.data.extraKeys >= num && key == Reflect.field(ClientPrefs.data, 'extraKeyReturn' + num)){
 	            if (MusicBeatState.mobilec.newhbox != null)
 	                extraControl = Reflect.getProperty(MusicBeatState.mobilec.newhbox, 'buttonExtra' + num);	            
 	            else
@@ -3666,7 +3666,7 @@ class ModchartSprite extends FlxSprite
 	public function new(?x:Float = 0, ?y:Float = 0)
 	{
 		super(x, y);
-		antialiasing = ClientPrefs.data.globalAntialiasing;
+		antialiasing = ClientPrefs.antialiasing;
 	}
 }
 

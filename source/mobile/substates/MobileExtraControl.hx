@@ -50,7 +50,7 @@ class MobileExtraControl extends MusicBeatSubstate
 		add(titleTeam);				
 		
 		for (i in 1...5){    
-			var data:String = Reflect.field(ClientPrefs, "extraKeyReturn" + i);    	
+			var data:String = Reflect.field(ClientPrefs.data, "extraKeyReturn" + i);    	
 			var _x = FlxG.width / 2 + 25 + (titleWidth + 50) * ((i-1) - 4 / 2);
 	        var titleObject = new ChooseButton(_x, 150, titleWidth, titleHeight, data, "Key " + Std.string(i));    		    			 			
     		titleTeam.add(titleObject);	    		
@@ -197,7 +197,7 @@ class MobileExtraControl extends MusicBeatSubstate
 			var title:ChooseButton = titleTeam.members[i];
 			
 			if (i == titleNum){
-			    title.changeExtraText(Reflect.field(ClientPrefs, "extraKeyReturn" + number));
+			    title.changeExtraText(Reflect.field(ClientPrefs.data, "extraKeyReturn" + number));
 			    if (needFlicker) FlxFlicker.flicker(title, 0.6, 0.075, true, true);
 			    if (changeBG) title.changeColor(FlxColor.WHITE);
 			} else {
@@ -211,7 +211,7 @@ class MobileExtraControl extends MusicBeatSubstate
 		{
 			var title:ChooseButton = titleTeam.members[i];
 			var number = i + 1;
-			title.changeExtraText(Reflect.field(ClientPrefs, "extraKeyReturn" + number));
+			title.changeExtraText(Reflect.field(ClientPrefs.data, "extraKeyReturn" + number));
 	    }
 	}
 }
@@ -234,7 +234,7 @@ class ChooseButton extends FlxSpriteGroup
 	
 	    titleObject = new FlxText(0, 0, width, title);
 		titleObject.setFormat("VCR OSD Mono", 20, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		titleObject.antialiasing = ClientPrefs.data.globalAntialiasing;
+		titleObject.antialiasing = ClientPrefs.antialiasing;
 		titleObject.borderSize = 2;
 		titleObject.x = bg.width / 2 - titleObject.width / 2;
 		titleObject.y = bg.height / 2 - titleObject.height / 2;
@@ -243,7 +243,7 @@ class ChooseButton extends FlxSpriteGroup
 		if (extendTitle != null){ 
     		extendTitleObject = new FlxText(0, 0, width, extendTitle);
     		extendTitleObject.setFormat("VCR OSD Mono", 30, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-    		extendTitleObject.antialiasing = ClientPrefs.data.globalAntialiasing;
+    		extendTitleObject.antialiasing = ClientPrefs.antialiasing;
     		extendTitleObject.borderSize = 2;
     		extendTitleObject.x = bg.width / 2 - extendTitleObject.width / 2;
 		    extendTitleObject.y = 30;

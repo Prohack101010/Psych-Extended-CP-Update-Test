@@ -69,7 +69,7 @@ class NoteOffsetState extends MusicBeatState
 		stageFront.updateHitbox();
 		add(stageFront);
 
-		if(!ClientPrefs.data.lowQuality) {
+		if(!ClientPrefs.lowQuality) {
 			var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
 			stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
 			stageLight.updateHitbox();
@@ -107,7 +107,7 @@ class NoteOffsetState extends MusicBeatState
 		rating.cameras = [camHUD];
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
 		rating.updateHitbox();
-		rating.antialiasing = ClientPrefs.data.globalAntialiasing;
+		rating.antialiasing = ClientPrefs.antialiasing;
 		
 		add(rating);
 
@@ -128,7 +128,7 @@ class NoteOffsetState extends MusicBeatState
 			numScore.cameras = [camHUD];
 			numScore.setGraphicSize(Std.int(numScore.width * 0.5));
 			numScore.updateHitbox();
-			numScore.antialiasing = ClientPrefs.data.globalAntialiasing;
+			numScore.antialiasing = ClientPrefs.antialiasing;
 			comboNums.add(numScore);
 			daLoop++;
 		}

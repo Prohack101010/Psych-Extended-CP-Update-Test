@@ -145,25 +145,25 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 	
 		blackback = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(blackback);
-		blackback.antialiasing = ClientPrefs.data.globalAntialiasing;
+		blackback.antialiasing = ClientPrefs.antialiasing;
 		blackback.alpha = moveType != 0 ? 0.5 : 0;
 		blackbackTween = FlxTween.tween(blackback, {alpha: 0.5}, 0.75, {ease: FlxEase.quartOut});	
 	    
 		backShadow = new FlxSprite(-800).loadGraphic(Paths.image(filePath + 'backShadow'));
 		add(backShadow);
-		backShadow.antialiasing = ClientPrefs.data.globalAntialiasing;
+		backShadow.antialiasing = ClientPrefs.antialiasing;
 		backShadow.updateHitbox();
 		backShadowTween = FlxTween.tween(backShadow, {x: 0}, 1, {ease: FlxEase.quartOut});
 	
 		back = new FlxSprite(-800).loadGraphic(Paths.image(filePath + 'back'));
 		add(back);
-		back.antialiasing = ClientPrefs.data.globalAntialiasing;
+		back.antialiasing = ClientPrefs.antialiasing;
 		back.updateHitbox();
 		backTween = FlxTween.tween(back, {x: 0}, 1, {ease: FlxEase.quartOut});
 	
 		front = new FlxSprite(-800).loadGraphic(Paths.image(filePath + 'front'));
 		add(front);
-		front.antialiasing = ClientPrefs.data.globalAntialiasing;
+		front.antialiasing = ClientPrefs.antialiasing;
 		front.updateHitbox();
 		frontTween = FlxTween.tween(front, {x: 0}, 1.3, {ease: FlxEase.quartOut});
 	
@@ -191,7 +191,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			if (optionText.width > 300)
 				optionText.scale.set(300 / optionText.width, 300 / optionText.width);
 			optionText.updateHitbox();
-			optionText.antialiasing = ClientPrefs.data.globalAntialiasing;
+			optionText.antialiasing = ClientPrefs.antialiasing;
 			difficultyAlphabet.push(optionText);
 		
 			var barShadow:FlxSprite = new FlxSprite().loadGraphic(Paths.image(filePath + 'barShadow'));
@@ -199,7 +199,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			barShadow.scale.set(0.5, 0.5);
 			barShadow.x = -1000;
 			barShadow.y = optionText.y - 30;
-			barShadow.antialiasing = ClientPrefs.data.globalAntialiasing;
+			barShadow.antialiasing = ClientPrefs.antialiasing;
 			barShadow.updateHitbox();
 			difficultyBars.push(barShadow);
 		
@@ -209,7 +209,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			bar.x = -1000;
 			bar.y = optionText.y - 30;
 			bar.updateHitbox();
-			bar.antialiasing = ClientPrefs.data.globalAntialiasing;
+			bar.antialiasing = ClientPrefs.antialiasing;
 			difficultyBars.push(bar);
 		
 			add(optionText);
@@ -224,7 +224,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			optionText.x = -1000;
 			optionText.y = (i - debugCurSelected) * 180 + 325;
 			optionText.setFormat(font, 50, FlxColor.BLACK);
-			optionText.antialiasing = ClientPrefs.data.globalAntialiasing;
+			optionText.antialiasing = ClientPrefs.antialiasing;
 			debugAlphabet.push(optionText);
 		
 			var barShadow:FlxSprite = new FlxSprite().loadGraphic(Paths.image(filePath + 'barShadow'));
@@ -233,7 +233,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			barShadow.x = -1000;
 			barShadow.y = optionText.y - 30;
 			barShadow.updateHitbox();
-			barShadow.antialiasing = ClientPrefs.data.globalAntialiasing;
+			barShadow.antialiasing = ClientPrefs.antialiasing;
 			debugBars.push(barShadow);
 		
 			var bar:FlxSprite = new FlxSprite().loadGraphic(Paths.image(filePath + 'bar'));
@@ -242,7 +242,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			bar.x = -1000;
 			bar.y = optionText.y - 30;
 			bar.updateHitbox();
-			bar.antialiasing = ClientPrefs.data.globalAntialiasing;
+			bar.antialiasing = ClientPrefs.antialiasing;
 			debugBars.push(bar);
 		
 			add(optionText);
@@ -255,7 +255,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			optionText.y = (180 * (i - (optionsType.length / 2))) + 400;
 			optionText.setFormat(font, 50, FlxColor.BLACK);
 			optionsOptionsAlphabet.push(optionText);
-			optionText.antialiasing = ClientPrefs.data.globalAntialiasing;
+			optionText.antialiasing = ClientPrefs.antialiasing;
 		
 			var barShadow:FlxSprite = new FlxSprite().loadGraphic(Paths.image(filePath + 'barShadow'));
 			add(barShadow);
@@ -263,7 +263,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			barShadow.x = -1000;
 			barShadow.y = optionText.y - 30;
 			barShadow.updateHitbox();
-			barShadow.antialiasing = ClientPrefs.data.globalAntialiasing;
+			barShadow.antialiasing = ClientPrefs.antialiasing;
 			optionsOptionsBars.push(barShadow);
 		
 			var bar:FlxSprite = new FlxSprite().loadGraphic(Paths.image(filePath + 'bar'));
@@ -272,7 +272,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			bar.x = -1000;
 			bar.y = optionText.y - 30;
 			bar.updateHitbox();
-			bar.antialiasing = ClientPrefs.data.globalAntialiasing;
+			bar.antialiasing = ClientPrefs.antialiasing;
 			optionsOptionsBars.push(bar);
 		
 			add(optionText);
@@ -289,7 +289,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			optionText.x = -1000;
 			optionText.y = (i - curSelected) * 180 + 325;
 			optionText.setFormat(font, 50, FlxColor.BLACK);
-			optionText.antialiasing = ClientPrefs.data.globalAntialiasing;
+			optionText.antialiasing = ClientPrefs.antialiasing;
 			optionsAlphabet.push(optionText);
 		
 			var barShadow:FlxSprite = new FlxSprite().loadGraphic(Paths.image(filePath + 'barShadow'));
@@ -298,7 +298,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			barShadow.x = -1000;
 			barShadow.y = optionText.y - 30;
 			barShadow.updateHitbox();
-			barShadow.antialiasing = ClientPrefs.data.globalAntialiasing;
+			barShadow.antialiasing = ClientPrefs.antialiasing;
 			optionsBars.push(barShadow);
 		
 			var bar:FlxSprite = new FlxSprite().loadGraphic(Paths.image(filePath + 'bar'));
@@ -307,7 +307,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			bar.x = -1000;
 			bar.y = optionText.y - 30;
 			bar.updateHitbox();
-			bar.antialiasing = ClientPrefs.data.globalAntialiasing;
+			bar.antialiasing = ClientPrefs.antialiasing;
 			optionsBars.push(bar);
 			
 			add(optionText);
@@ -315,17 +315,17 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 	
 		missingText = new FlxText(0, 720, 0, '', 35);
 		missingText.setFormat(font, 24, FlxColor.WHITE, CENTER, null, FlxColor.BLACK);
-		missingText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		missingText.antialiasing = ClientPrefs.antialiasing;
 		add(missingText);
 	
 		boolText = new FlxText(0, 720, 0, 'OFF', 24);
 		boolText.setFormat(font, 24, FlxColor.BLACK);
-		boolText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		boolText.antialiasing = ClientPrefs.antialiasing;
 		add(boolText);
 	
 		skipTimeText = new FlxText(0, 720, 0, '', 24);
 		skipTimeText.setFormat(font, 40, FlxColor.WHITE);
-		skipTimeText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		skipTimeText.antialiasing = ClientPrefs.antialiasing;
 		add(skipTimeText);
 		updateSkipTimeText();
 		
@@ -338,38 +338,38 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 		
 		dataText = new FlxText(0, 15, 0, Date.now().toString(), 32);
 		dataText.setFormat(font, 25);
-		dataText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		dataText.antialiasing = ClientPrefs.antialiasing;
 		dataText.updateHitbox();
 		add(dataText);
 		
 		songText = new FlxText(0, 15, 0, PlayState.SONG.song + ' - ' + Difficulty.getString().toUpperCase(), 32);
 		songText.setFormat(font, 25);
-		songText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		songText.antialiasing = ClientPrefs.antialiasing;
 		songText.updateHitbox();
 		add(songText);
 		
 		ballText = new FlxText(0, 15, 0, 'Blueballed: ' + PlayState.deathCounter, 32);
 		ballText.setFormat(font, 25);
 		ballText.updateHitbox();
-		ballText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		ballText.antialiasing = ClientPrefs.antialiasing;
 		add(ballText);
 		
 		practiceText = new FlxText(0, 15, 0, 'Practice Mode: ' + (PlayState.instance.practiceMode ? 'ON' : 'OFF'), 32);
 		practiceText.setFormat(font, 25);
 		practiceText.updateHitbox();
-		practiceText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		practiceText.antialiasing = ClientPrefs.antialiasing;
 		add(practiceText);
 		
 		botText = new FlxText(0, 15, 0, 'Botplay: ' + (PlayState.instance.cpuControlled ? 'ON' : 'OFF'), 32);
 		botText.setFormat(font, 25);
 		botText.updateHitbox();
-		botText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		botText.antialiasing = ClientPrefs.antialiasing;
 		add(botText);
 		
 		cheatingText = new FlxText(0, 15, 0, 'Cheating: ' + (PlayState.chartingMode ? 'ON' : 'OFF'), 32);
 		cheatingText.setFormat(font, 25);
 		cheatingText.updateHitbox();
-		cheatingText.antialiasing = ClientPrefs.data.globalAntialiasing;
+		cheatingText.antialiasing = ClientPrefs.antialiasing;
 		add(cheatingText);
 		
 		menuText = [dataText, songText, ballText, practiceText, botText, cheatingText];

@@ -1,0 +1,114 @@
+{
+  "dependencies": [
+    {
+      "name": "lime",
+      "type": "git",
+      "dir": null,
+      "ref": "develop",
+      "url": "https://github.com/mcagabe19-stuff/lime"
+    },
+    {
+      "name": "openfl",
+      "type": "haxelib",
+      "version": "9.3.2"
+    },
+    {
+      "name": "flixel",
+      "type": "haxelib",
+      "version": "5.5.0"
+    },
+    {
+      "name": "flixel-addons",
+      "type": "haxelib",
+      "version": "3.2.1"
+    },
+    {
+      "name": "flixel-ui",
+      "type": "haxelib",
+      "version": "2.5.0"
+    },
+    {
+      "name": "flixel-tools",
+      "type": "haxelib",
+      "version": "1.5.1"
+    },
+    {
+      "name": "hxcpp",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/mcagabe19-stuff/hxcpp"
+    },
+    {
+      "name":"hxCodec",
+      "type":"git",
+      "dir":null,
+      "ref":"main",
+      "url":"https://github.com/Prohack101010/hxCodec-2.6.0-with-MP4Handler.git"
+    },
+    {
+      "name": "hxvlc",
+      "type": "git",
+      "dir": null,
+      "ref": "70e7f5f3e76d526ac6fb8f0e6665efe7dfda589d",
+      "url": "https://github.com/MAJigsaw77/hxvlc"
+    },
+    {
+      "name": "hscript",
+      "type": "haxelib",
+      "version": "2.5.0"
+    },
+    {
+      "name": "hxcpp-debug-server",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "tjson",
+      "type": "haxelib",
+      "version": null
+    },
+    {
+      "name": "discord_rpc",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/Aidan63/linc_discord-rpc"
+    },
+    {
+      "name": "linc_luajit",
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/mcagabe19-stuff/linc_luajit-rewriten"
+    },
+    {
+      "name": "flxanimate",
+      "type": "git",
+      "dir": null,
+      "ref": "dev",
+      "url": "https://github.com/ShadowMario/flxanimate.git"
+    },
+    {
+      "name": "extension-androidtools",
+      "type": "git",
+      "dir": null,
+      "ref": "df9dfd0cda74e5460ae3afcfff1081c50959ed4a",
+      "url": "https://github.com/MAJigsaw77/extension-androidtools"
+    },
+    {
+      "name": "funkin.vis",
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/beihu235/funkVis-FrequencyFixed"
+    },
+    {
+      "name": "grig.audio",
+      "type": "git",
+      "dir": "src",
+      "ref": "57f5d47f2533fd0c3dcd025a86cb86c0dfa0b6d2",
+      "url": "https://gitlab.com/haxe-grig/grig.audio.git"
+    }
+  ]
+}

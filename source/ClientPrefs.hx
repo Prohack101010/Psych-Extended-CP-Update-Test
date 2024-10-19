@@ -109,7 +109,7 @@ class ClientPrefs {
 	public static var checkForUpdates:Bool = true;
 	public static var wideScreen:Bool = false;
 	#if android
-	public var storageType:String = "EXTERNAL_DATA";
+	public static var storageType:String = "EXTERNAL_DATA";
 	#end
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx

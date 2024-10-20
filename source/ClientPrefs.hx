@@ -8,6 +8,15 @@ import Controls;
 
 // Add a variable here and it will get automatically saved
 class SaveVariables {
+    public var NoteSkin:String = 'original';
+    public var FreeplayStyle:String = 'Psych';
+    public var PauseMenuStyle:String = 'Psych';
+    public var FreakyMenu:String = 'Extended';
+    public var TransitionStyle:String = 'Psych';
+    public var MainMenuStyle:String = '1.0';
+	public var Modpack:Bool = false;
+	public var IndieCrossMenus:Bool = #if (INDIECROSS_FORCED || INDIECROSS_ASSETS) true #else false #end;
+	
     public var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -37,16 +46,7 @@ class SaveVariables {
 
 class ClientPrefs {
 	public static var data:SaveVariables = null;
-	//Psych Extended
-	public static var NoteSkin:String = 'original';
-    public static var FreeplayStyle:String = 'Psych';
-    public static var PauseMenuStyle:String = 'Psych';
-    public static var FreakyMenu:String = 'Extended';
-    public static var TransitionStyle:String = 'Psych';
-    public static var MainMenuStyle:String = '1.0';
-	public static var Modpack:Bool = false;
-	public static var IndieCrossMenus:Bool = #if (INDIECROSS_FORCED || INDIECROSS_ASSETS) true #else false #end;
-	
+	//Psych Extended	
 	public static var wideScreen:Bool = false;
 	public static var mobileC:Bool = true; //better than using if mobile
 	
@@ -146,19 +146,11 @@ class ClientPrefs {
 	    FlxG.save.data.mobileC = mobileC;
 	    FlxG.save.data.wideScreen = wideScreen;
 	    FlxG.save.data.VirtualPadSkin = VirtualPadSkin;
-		FlxG.save.data.FreeplayStyle = FreeplayStyle;
-		FlxG.save.data.MainMenuStyle = MainMenuStyle;
 		FlxG.save.data.extraKeyReturn1 = extraKeyReturn1;
 		FlxG.save.data.extraKeyReturn2 = extraKeyReturn2;
 		FlxG.save.data.extraKeyReturn3 = extraKeyReturn3;
 		FlxG.save.data.extraKeyReturn4 = extraKeyReturn4;
-		FlxG.save.data.PauseMenuStyle = PauseMenuStyle;
-		FlxG.save.data.FreakyMenu = FreakyMenu;
-		FlxG.save.data.TransitionStyle = TransitionStyle;
-		FlxG.save.data.Modpack = Modpack;
-		FlxG.save.data.IndieCrossMenus = IndieCrossMenus;
 		FlxG.save.data.coloredvpad = coloredvpad;
-		FlxG.save.data.NoteSkin = NoteSkin;
 		FlxG.save.data.virtualpadType = virtualpadType;
 		FlxG.save.data.extraKeys = extraKeys;
 	    FlxG.save.data.hitboxLocation = hitboxLocation;
@@ -234,18 +226,12 @@ class ClientPrefs {
 		}
 		
 		//Psych Extended
-	    if(FlxG.save.data.NoteSkin != null)
-			NoteSkin = FlxG.save.data.NoteSkin;
 		if(FlxG.save.data.wideScreen != null)
 			wideScreen = FlxG.save.data.wideScreen;
 		if(FlxG.save.data.mobileC != null)
 			mobileC = FlxG.save.data.mobileC;
 		if(FlxG.save.data.VirtualPadSkin != null)
 			VirtualPadSkin = FlxG.save.data.VirtualPadSkin;
-		if(FlxG.save.data.FreeplayStyle != null)
-			FreeplayStyle = FlxG.save.data.FreeplayStyle;
-		if(FlxG.save.data.MainMenuStyle != null)
-			MainMenuStyle = FlxG.save.data.MainMenuStyle;
 		if(FlxG.save.data.extraKeyReturn1 != null)
 			extraKeyReturn1 = FlxG.save.data.extraKeyReturn1;
 		if(FlxG.save.data.extraKeyReturn2 != null)
@@ -254,16 +240,6 @@ class ClientPrefs {
 			extraKeyReturn3 = FlxG.save.data.extraKeyReturn3;
 		if(FlxG.save.data.extraKeyReturn4 != null)
 			extraKeyReturn4 = FlxG.save.data.extraKeyReturn4;
-		if(FlxG.save.data.PauseMenuStyle != null)
-			PauseMenuStyle = FlxG.save.data.PauseMenuStyle;
-		if(FlxG.save.data.FreakyMenu != null)
-			FreakyMenu = FlxG.save.data.FreakyMenu;
-		if(FlxG.save.data.TransitionStyle != null)
-			TransitionStyle = FlxG.save.data.TransitionStyle;
-		if(FlxG.save.data.Modpack != null)
-			Modpack = FlxG.save.data.Modpack;
-		if(FlxG.save.data.IndieCrossMenus != null)
-			IndieCrossMenus = FlxG.save.data.IndieCrossMenus;
 		if(FlxG.save.data.coloredvpad != null)
 			coloredvpad = FlxG.save.data.coloredvpad;
 		if(FlxG.save.data.virtualpadType != null)

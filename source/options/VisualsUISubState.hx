@@ -40,7 +40,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Freeplay Menu Style:',
 			"Choose your Freeplay Menu Style",
-			'FreeplayStyle',
+			'data.FreeplayStyle',
 			'string',
 			'Psych',
 			['Psych', 'NovaFlare', 'NF']);
@@ -48,7 +48,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Main Menu Style:',
 			"Choose your Main Menu Style",
-			'MainMenuStyle',
+			'data.MainMenuStyle',
 			'string',
 			'1.0',
 			['1.0', 'NovaFlare', '0.6.3', 'Extended']);
@@ -56,7 +56,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Pause Menu Style:',
 			"Choose your Pause Menu Style",
-			'PauseMenuStyle',
+			'data.PauseMenuStyle',
 			'string',
 			'Psych',
 			['Psych', 'NovaFlare']);
@@ -64,7 +64,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Transition Style:',
 			"Choose your Transition Style",
-			'TransitionStyle',
+			'data.TransitionStyle',
 			'string',
 			'Psych',
 			['Psych', 'NovaFlare', 'Extended']);
@@ -72,7 +72,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Note Skin:',
 			"Choose Note Skin",
-			'NoteSkin',
+			'data.NoteSkin',
 			'string',
 			'original',
 			noteSkinList);	
@@ -83,7 +83,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		#if (!INDIECROSS_FORCED && INDIECROSS_ASSETS)
 		var option:Option = new Option('Indie Cross Menus',
 			'If unchecked, Indie Cross Mods not using Custom Menus (if you have any bug disable this).',
-			'IndieCrossMenus',
+			'data.IndieCrossMenus',
 			'bool',
 			true);
 		addOption(option);
@@ -164,7 +164,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Main Menu Song:',
 			"What song do you prefer for the Main Menu?",
-			'FreakyMenu',
+			'data.FreakyMenu',
 			'string',
 			'Extended',
 			['Extended', 'Psych']);
@@ -217,7 +217,7 @@ class VisualsUISubState extends BaseOptionsMenu
 	    if (!TitleState.IndieCrossEnabled && Paths.currentModDirectory.startsWith('Indie Cross'))
             TitleState.IndieCrossEnabled = true;
         else if (TitleState.IndieCrossEnabled)
-	        TitleState.IndieCrossEnabled = ClientPrefs.IndieCrossMenus;
+	        TitleState.IndieCrossEnabled = ClientPrefs.data.IndieCrossMenus;
 	}
 
 	function onChangeFPSCounter()
@@ -235,10 +235,10 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		for (i in 0...ClientPrefs.arrowHSV.length) {
 			var notes:FlxSprite = new FlxSprite((i * 125), 100);
-			if (ClientPrefs.NoteSkin == 'original')
+			if (ClientPrefs.data.NoteSkin == 'original')
 			    notes.frames = Paths.getSparrowAtlas('NOTE_assets');
 			else
-			    notes.frames = Paths.getSparrowAtlas('NoteSkin/' + ClientPrefs.NoteSkin);
+			    notes.frames = Paths.getSparrowAtlas('NoteSkin/' + ClientPrefs.data.NoteSkin);
 			var animations:Array<String> = ['purple0', 'blue0', 'green0', 'red0'];
 			notes.animation.addByPrefix('idle', animations[i]);
 			notes.animation.play('idle');

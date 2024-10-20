@@ -487,7 +487,7 @@ class TitleState extends MusicBeatState
     					MusicBeatState.switchState(new OutdatedState());
     				} else {
                 		#if (INDIECROSS_ASSETS || INDIECROSS_FORCED)
-                	    if (ClientPrefs.IndieCrossMenus && Paths.currentModDirectory.startsWith('Indie Cross')) //I dont have a Better Solution for now
+                	    if (ClientPrefs.data.IndieCrossMenus && Paths.currentModDirectory.startsWith('Indie Cross')) //I dont have a Better Solution for now
                 	        TitleState.IndieCrossEnabled = true;
                 	    #end
                 	    CustomSwitchState.switchMenus('MainMenu');
@@ -532,14 +532,14 @@ class TitleState extends MusicBeatState
 								}
 							});
 							FlxG.sound.music.fadeOut();
-							if (ClientPrefs.FreeplayStyle == 'NF')
+							if (ClientPrefs.data.FreeplayStyle == 'NF')
 							{
     							if(FreeplayStateNF.vocals != null)
     							{
     								FreeplayStateNF.vocals.fadeOut();
     							}
     						}
-    						else if (ClientPrefs.FreeplayStyle == 'NovaFlare')
+    						else if (ClientPrefs.data.FreeplayStyle == 'NovaFlare')
 							{
     							if(FreeplayStateNOVA.vocals != null)
     							{
@@ -776,14 +776,14 @@ class TitleState extends MusicBeatState
 				if(easteregg == 'SHADOW')
 				{
 					FlxG.sound.music.fadeOut();
-					if (ClientPrefs.FreeplayStyle == 'NF')
+					if (ClientPrefs.data.FreeplayStyle == 'NF')
 					{
     					if(FreeplayStateNF.vocals != null)
     					{
     						FreeplayStateNF.vocals.fadeOut();
     					}
     				}
-    				else if (ClientPrefs.FreeplayStyle == 'NovaFlare')
+    				else if (ClientPrefs.data.FreeplayStyle == 'NovaFlare')
 					{
     					if(FreeplayStateNOVA.vocals != null)
     					{

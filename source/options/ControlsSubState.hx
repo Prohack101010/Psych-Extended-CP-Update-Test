@@ -156,7 +156,7 @@ class ControlsSubState extends MusicBeatSubstate {
 
 			if(controls.ACCEPT && nextAccept <= 0) {
 				if(optionShit[curSelected][0] == defaultKey) {
-					ClientPrefs.keyBinds = ClientPrefs.data.defaultKeys.copy();
+					ClientPrefs.keyBinds = ClientPrefs.defaultKeys.copy();
 					reloadKeys();
 					changeSelection();
 					FlxG.sound.play(Paths.sound('confirmMenu'));

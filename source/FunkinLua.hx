@@ -3639,7 +3639,7 @@ class FunkinLua {
 	    var extraControl:Dynamic = null;
 	    
 	    for (num in 1...5){
-	        if (ClientPrefs.data.extraKeys >= num && key == Reflect.field(ClientPrefs.data.data, 'extraKeyReturn' + num)){
+	        if (ClientPrefs.data.extraKeys >= num && key == Reflect.field(ClientPrefs.data, 'extraKeyReturn' + num)){
 	            if (MusicBeatState.mobilec.newhbox != null)
 	                extraControl = Reflect.getProperty(MusicBeatState.mobilec.newhbox, 'buttonExtra' + num);	            
 	            else

@@ -99,7 +99,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 
 		var option:Option = new Option('Rating Offset',
 			'Changes how late/early you have to hit for a "Sick!"\nHigher values mean you have to hit later.',
-			'data.ratingOffset',
+			'ratingOffset',
 			'int',
 			0);
 		option.displayFormat = '%vms';
@@ -110,7 +110,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 
 		var option:Option = new Option('Sick! Hit Window',
 			'Changes the amount of time you have\nfor hitting a "Sick!" in milliseconds.',
-			'data.sickWindow',
+			'sickWindow',
 			'int',
 			45);
 		option.displayFormat = '%vms';
@@ -121,7 +121,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 
 		var option:Option = new Option('Good Hit Window',
 			'Changes the amount of time you have\nfor hitting a "Good" in milliseconds.',
-			'data.goodWindow',
+			'goodWindow',
 			'int',
 			90);
 		option.displayFormat = '%vms';
@@ -132,7 +132,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 
 		var option:Option = new Option('Bad Hit Window',
 			'Changes the amount of time you have\nfor hitting a "Bad" in milliseconds.',
-			'data.badWindow',
+			'badWindow',
 			'int',
 			135);
 		option.displayFormat = '%vms';
@@ -143,7 +143,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 
 		var option:Option = new Option('Safe Frames',
 			'Changes how many frames you have for\nhitting a note earlier or late.',
-			'data.safeFrames',
+			'safeFrames',
 			'float',
 			10);
 		option.scrollSpeed = 5;

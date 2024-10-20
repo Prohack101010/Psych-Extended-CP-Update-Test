@@ -29,13 +29,6 @@ class SaveVariables {
 		'opponentplay' => false
 	];
 
-	public var comboOffset:Array<Int> = [0, 0, 0, 0];
-	public var ratingOffset:Int = 0;
-	public var sickWindow:Int = 45;
-	public var goodWindow:Int = 90;
-	public var badWindow:Int = 135;
-	public var safeFrames:Float = 10;
-
 	public function new()
 	{
 		//Why does haxe needs this again?
@@ -108,6 +101,13 @@ class ClientPrefs {
 	public static var pauseMusic:String = 'Tea Time';
 	public static var checkForUpdates:Bool = true;
 	public static var comboStacking:Bool = true;
+	
+	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
+	public static var ratingOffset:Int = 0;
+	public var sickWindow:Int = 45;
+	public static var goodWindow:Int = 90;
+	public static var badWindow:Int = 135;
+	public static var safeFrames:Float = 10;
 	
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -195,6 +195,13 @@ class ClientPrefs {
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
+		FlxG.save.data.comboOffset = comboOffset;
+
+		FlxG.save.data.ratingOffset = ratingOffset;
+		FlxG.save.data.sickWindow = sickWindow;
+		FlxG.save.data.goodWindow = goodWindow;
+		FlxG.save.data.badWindow = badWindow;
+		FlxG.save.data.safeFrames = safeFrames;
 		FlxG.save.data.controllerMode = controllerMode;
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
@@ -343,6 +350,19 @@ class ClientPrefs {
 			noReset = FlxG.save.data.noReset;
 		if(FlxG.save.data.healthBarAlpha != null)
 			healthBarAlpha = FlxG.save.data.healthBarAlpha;
+		if(FlxG.save.data.comboOffset != null)
+			comboOffset = FlxG.save.data.comboOffset;
+		
+		if(FlxG.save.data.ratingOffset != null)
+			ratingOffset = FlxG.save.data.ratingOffset;
+		if(FlxG.save.data.sickWindow != null)
+			sickWindow = FlxG.save.data.sickWindow;
+		if(FlxG.save.data.goodWindow != null)
+			goodWindow = FlxG.save.data.goodWindow;
+		if(FlxG.save.data.badWindow != null)
+			badWindow = FlxG.save.data.badWindow;
+		if(FlxG.save.data.safeFrames != null)
+			safeFrames = FlxG.save.data.safeFrames;
 		if(FlxG.save.data.controllerMode != null)
 			controllerMode = FlxG.save.data.controllerMode;
 		if(FlxG.save.data.hitsoundVolume != null)

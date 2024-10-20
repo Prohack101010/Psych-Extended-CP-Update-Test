@@ -489,7 +489,7 @@ class ResultRect extends FlxSpriteGroup
     	    0xFFFF5858, //shit
     	    0xFFFF0000 //miss
     		];
-    var safeZoneOffset:Float = (ClientPrefs.data.safeFrames / 60) * 1000;
+    var safeZoneOffset:Float = (ClientPrefs.safeFrames / 60) * 1000;
     
     var _width:Float;
     var _height:Float;
@@ -514,9 +514,9 @@ class ResultRect extends FlxSpriteGroup
             for (i in 0...msGroup.length){
                 var color:FlxColor;
                 if (Math.abs(msGroup[i]) <= ClientPrefs.marvelousWindow && ClientPrefs.marvelousRating) color = ColorArray[0];
-    		    else if (Math.abs(msGroup[i]) <= ClientPrefs.data.sickWindow) color = ColorArray[1];
-    		    else if (Math.abs(msGroup[i]) <= ClientPrefs.data.goodWindow) color = ColorArray[2];
-    		    else if (Math.abs(msGroup[i]) <= ClientPrefs.data.badWindow) color = ColorArray[3];
+    		    else if (Math.abs(msGroup[i]) <= ClientPrefs.sickWindow) color = ColorArray[1];
+    		    else if (Math.abs(msGroup[i]) <= ClientPrefs.goodWindow) color = ColorArray[2];
+    		    else if (Math.abs(msGroup[i]) <= ClientPrefs.badWindow) color = ColorArray[3];
     		    else if (Math.abs(msGroup[i]) <= safeZoneOffset) color = ColorArray[4];
     		    else color = ColorArray[5];	
     		    
@@ -539,18 +539,18 @@ class ResultRect extends FlxSpriteGroup
         shape.graphics.endFill();
         
         shape.graphics.beginFill(colorArrayAlpha[1]); 
-        shape.graphics.drawRect(0, _height / 2 - (ClientPrefs.data.sickWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
-        shape.graphics.drawRect(0, _height / 2 + (ClientPrefs.data.sickWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
+        shape.graphics.drawRect(0, _height / 2 - (ClientPrefs.sickWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
+        shape.graphics.drawRect(0, _height / 2 + (ClientPrefs.sickWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
         shape.graphics.endFill();
         
         shape.graphics.beginFill(colorArrayAlpha[2]); 
-        shape.graphics.drawRect(0, _height / 2 - (ClientPrefs.data.goodWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
-        shape.graphics.drawRect(0, _height / 2 + (ClientPrefs.data.goodWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
+        shape.graphics.drawRect(0, _height / 2 - (ClientPrefs.goodWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
+        shape.graphics.drawRect(0, _height / 2 + (ClientPrefs.goodWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
         shape.graphics.endFill();
         
         shape.graphics.beginFill(colorArrayAlpha[3]); 
-        shape.graphics.drawRect(0, _height / 2 - (ClientPrefs.data.badWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
-        shape.graphics.drawRect(0, _height / 2 + (ClientPrefs.data.badWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
+        shape.graphics.drawRect(0, _height / 2 - (ClientPrefs.badWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
+        shape.graphics.drawRect(0, _height / 2 + (ClientPrefs.badWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
         shape.graphics.endFill();
 
         shape.graphics.beginFill(colorArrayAlpha[4]); 

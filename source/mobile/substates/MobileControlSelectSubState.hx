@@ -323,7 +323,7 @@ class MobileControlSelectSubState extends MusicBeatSubstate
         }
         else
         {
-            if(ClientPrefs.data.hitboxmode != 'New'){
+            if(ClientPrefs.hitboxmode != 'New'){
                 hbox.visible = true;
             }else{
                 newhbox.visible = true;

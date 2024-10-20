@@ -320,7 +320,7 @@ class ResetAchievementSubstate extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
-		if(controls.BACK || FlxG.mouse.overlaps(noText) && FlxG.mouse.justPressed && ClientPrefs.data.mobileC)
+		if(controls.BACK || FlxG.mouse.overlaps(noText) && FlxG.mouse.justPressed && ClientPrefs.mobileC)
 		{
 			close();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
@@ -337,7 +337,7 @@ class ResetAchievementSubstate extends MusicBeatSubstate
 		if(controls.ACCEPT)
 			onYesFunction();
 		
-		if(FlxG.mouse.overlaps(yesText) && FlxG.mouse.justPressed && ClientPrefs.data.mobileC) { onYes = true; onYesFunction(); }
+		if(FlxG.mouse.overlaps(yesText) && FlxG.mouse.justPressed && ClientPrefs.mobileC) { onYes = true; onYesFunction(); }
 	}
 
 	function updateOptions() {

@@ -513,7 +513,7 @@ class ResultRect extends FlxSpriteGroup
         if (msGroup != null && timeGroup != null && msGroup.length > 0){
             for (i in 0...msGroup.length){
                 var color:FlxColor;
-                if (Math.abs(msGroup[i]) <= ClientPrefs.data.marvelousWindow && ClientPrefs.data.marvelousRating) color = ColorArray[0];
+                if (Math.abs(msGroup[i]) <= ClientPrefs.marvelousWindow && ClientPrefs.marvelousRating) color = ColorArray[0];
     		    else if (Math.abs(msGroup[i]) <= ClientPrefs.data.sickWindow) color = ColorArray[1];
     		    else if (Math.abs(msGroup[i]) <= ClientPrefs.data.goodWindow) color = ColorArray[2];
     		    else if (Math.abs(msGroup[i]) <= ClientPrefs.data.badWindow) color = ColorArray[3];
@@ -534,8 +534,8 @@ class ResultRect extends FlxSpriteGroup
         shape.graphics.endFill();
         
         shape.graphics.beginFill(colorArrayAlpha[0]); 
-        shape.graphics.drawRect(0, _height / 2 - (ClientPrefs.data.marvelousWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
-        shape.graphics.drawRect(0, _height / 2 + (ClientPrefs.data.marvelousWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
+        shape.graphics.drawRect(0, _height / 2 - (ClientPrefs.marvelousWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
+        shape.graphics.drawRect(0, _height / 2 + (ClientPrefs.marvelousWindow / safeZoneOffset) * _height / 2 - 1, _width, 1);
         shape.graphics.endFill();
         
         shape.graphics.beginFill(colorArrayAlpha[1]); 

@@ -193,10 +193,10 @@ class VisualsUISubState extends BaseOptionsMenu
 	var changedMusic:Bool = false;
 	function onChangePauseMusic()
 	{
-		if(ClientPrefs.data.pauseMusic == 'None')
+		if(ClientPrefs.pauseMusic == 'None')
 			FlxG.sound.music.volume = 0;
 		else
-			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)));
+			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.pauseMusic)));
 
 		changedMusic = true;
 	}
@@ -233,12 +233,12 @@ class VisualsUISubState extends BaseOptionsMenu
 		grpNote = new FlxTypedGroup<FlxSprite>();
 		add(grpNote);
 		
-		for (i in 0...ClientPrefs.data.arrowHSV.length) {
+		for (i in 0...ClientPrefs.arrowHSV.length) {
 			var notes:FlxSprite = new FlxSprite((i * 125), 100);
-			if (ClientPrefs.data.NoteSkin == 'original')
+			if (ClientPrefs.NoteSkin == 'original')
 			    notes.frames = Paths.getSparrowAtlas('NOTE_assets');
 			else
-			    notes.frames = Paths.getSparrowAtlas('NoteSkin/' + ClientPrefs.data.NoteSkin);
+			    notes.frames = Paths.getSparrowAtlas('NoteSkin/' + ClientPrefs.NoteSkin);
 			var animations:Array<String> = ['purple0', 'blue0', 'green0', 'red0'];
 			notes.animation.addByPrefix('idle', animations[i]);
 			notes.animation.play('idle');
@@ -249,9 +249,9 @@ class VisualsUISubState extends BaseOptionsMenu
 			
 			var newShader:ColorSwap = new ColorSwap();
 			notes.shader = newShader.shader;
-			newShader.hue = ClientPrefs.data.arrowHSV[i][0] / 360;
-			newShader.saturation = ClientPrefs.data.arrowHSV[i][1] / 100;
-			newShader.brightness = ClientPrefs.data.arrowHSV[i][2] / 100;	    
+			newShader.hue = ClientPrefs.arrowHSV[i][0] / 360;
+			newShader.saturation = ClientPrefs.arrowHSV[i][1] / 100;
+			newShader.brightness = ClientPrefs.arrowHSV[i][2] / 100;	    
 		}
 	}
 }

@@ -130,9 +130,9 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 			{
 				if(songName == null)
 				{
-					var path:String = Paths.formatToSongPath(ClientPrefs.data.pauseMusic);
+					var path:String = Paths.formatToSongPath(ClientPrefs.pauseMusic);
 					if(path.toLowerCase() != 'none')
-						pauseMusic.loadEmbedded(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)), true, true);
+						pauseMusic.loadEmbedded(Paths.music(Paths.formatToSongPath(ClientPrefs.pauseMusic)), true, true);
 				}
 				else pauseMusic.loadEmbedded(Paths.music(songName), true, true);
 			}
@@ -172,7 +172,7 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 		backButton.scale.set(0.45, 0.45);
 		backButton.updateHitbox();
 		backButton.visible = false;
-		if (ClientPrefs.data.mobileC) backButton.y -= 127;
+		if (ClientPrefs.mobileC) backButton.y -= 127;
 	
 		if (Difficulty.list.length < 2) options.remove('Difficulty');
 	
@@ -636,8 +636,8 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 					PlayState.instance.vocals.volume = 0;
 					OptionsState.onPlayState = true;
 					MusicBeatState.switchState(new OptionsState());
-					if(ClientPrefs.data.pauseMusic != 'None'){
-						FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)), pauseMusic.volume);
+					if(ClientPrefs.pauseMusic != 'None'){
+						FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.pauseMusic)), pauseMusic.volume);
 						FlxTween.tween(FlxG.sound.music, {volume: 1}, 0.8);
 						FlxG.sound.music.time = pauseMusic.time;
 					}
@@ -754,8 +754,8 @@ class PauseSubStateNOVA extends MusicBeatSubstate
 					PlayState.instance.vocals.volume = 0;
 					//OptionsState.onPlayState = true;
 					MusicBeatState.switchState(new OptionsState());
-					if(ClientPrefs.data.pauseMusic != 'None'){
-						FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)), pauseMusic.volume);
+					if(ClientPrefs.pauseMusic != 'None'){
+						FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.pauseMusic)), pauseMusic.volume);
 						FlxTween.tween(FlxG.sound.music, {volume: 1}, 0.8);
 						FlxG.sound.music.time = pauseMusic.time;
 					}

@@ -23,7 +23,7 @@ class FlashingState extends MusicBeatState
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		add(bg);
 
-		if (ClientPrefs.data.mobileC)
+		if (ClientPrefs.mobileC)
 		{
     		warnText = new FlxText(0, 0, FlxG.width,
     			"Hey, watch out!\n

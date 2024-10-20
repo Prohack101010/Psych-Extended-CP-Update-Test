@@ -48,7 +48,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	public var rpcTitle:String;
 	
 	public var bg:FlxSprite;
-	final lastVirtualPadType:String = ClientPrefs.data.virtualpadType;
+	final lastVirtualPadType:String = ClientPrefs.virtualpadType;
 
 	public function new()
 	{
@@ -157,11 +157,11 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		}
 
 		if (controls.BACK) {
-		    if (ClientPrefs.data.virtualpadType != lastVirtualPadType) //Null Object Fix
+		    if (ClientPrefs.virtualpadType != lastVirtualPadType) //Null Object Fix
 		    {
-        		ClientPrefs.data.VirtualPadSkin = 'original';
+        		ClientPrefs.VirtualPadSkin = 'original';
         		ClientPrefs.saveSettings();
-        		ClientPrefs.data.VirtualPadSkin = 'original';
+        		ClientPrefs.VirtualPadSkin = 'original';
         		CoolUtil.showPopUp('VirtualPad Type has been changed and you needed restart the game!!\nPress OK to close the game.', 'Notice!');
         		lime.system.System.exit(0);
         	}
@@ -377,12 +377,12 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	
 	public function reloadNotes()
 		{
-			for (i in 0...ClientPrefs.data.arrowHSV.length) {
+			for (i in 0...ClientPrefs.arrowHSV.length) {
 				var notes:FlxSprite = new FlxSprite((i * 125), 100);
-				if (ClientPrefs.data.NoteSkin == 'original')
+				if (ClientPrefs.NoteSkin == 'original')
     			    notes.frames = Paths.getSparrowAtlas('NOTE_assets');
     			else
-    			    notes.frames = Paths.getSparrowAtlas('NoteSkin/' + ClientPrefs.data.NoteSkin);
+    			    notes.frames = Paths.getSparrowAtlas('NoteSkin/' + ClientPrefs.NoteSkin);
 				var animations:Array<String> = ['purple0', 'blue0', 'green0', 'red0'];
 				notes.animation.addByPrefix('idle', animations[i]);
 				notes.animation.play('idle');
@@ -394,9 +394,9 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				
 				var newShader:ColorSwap = new ColorSwap();
 			    notes.shader = newShader.shader;
-			    newShader.hue = ClientPrefs.data.arrowHSV[i][0] / 360;
-			    newShader.saturation = ClientPrefs.data.arrowHSV[i][1] / 100;
-			    newShader.brightness = ClientPrefs.data.arrowHSV[i][2] / 100;
+			    newShader.hue = ClientPrefs.arrowHSV[i][0] / 360;
+			    newShader.saturation = ClientPrefs.arrowHSV[i][1] / 100;
+			    newShader.brightness = ClientPrefs.arrowHSV[i][2] / 100;
 		}
 	}
 

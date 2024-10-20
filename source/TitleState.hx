@@ -532,14 +532,14 @@ class TitleState extends MusicBeatState
 								}
 							});
 							FlxG.sound.music.fadeOut();
-							if (ClientPrefs.data.FreeplayStyle == 'NF')
+							if (ClientPrefs.FreeplayStyle == 'NF')
 							{
     							if(FreeplayStateNF.vocals != null)
     							{
     								FreeplayStateNF.vocals.fadeOut();
     							}
     						}
-    						else if (ClientPrefs.data.FreeplayStyle == 'NovaFlare')
+    						else if (ClientPrefs.FreeplayStyle == 'NovaFlare')
 							{
     							if(FreeplayStateNOVA.vocals != null)
     							{
@@ -776,14 +776,14 @@ class TitleState extends MusicBeatState
 				if(easteregg == 'SHADOW')
 				{
 					FlxG.sound.music.fadeOut();
-					if (ClientPrefs.data.FreeplayStyle == 'NF')
+					if (ClientPrefs.FreeplayStyle == 'NF')
 					{
     					if(FreeplayStateNF.vocals != null)
     					{
     						FreeplayStateNF.vocals.fadeOut();
     					}
     				}
-    				else if (ClientPrefs.data.FreeplayStyle == 'NovaFlare')
+    				else if (ClientPrefs.FreeplayStyle == 'NovaFlare')
 					{
     					if(FreeplayStateNOVA.vocals != null)
     					{

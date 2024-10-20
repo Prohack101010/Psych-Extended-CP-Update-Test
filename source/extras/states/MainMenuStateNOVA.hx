@@ -112,7 +112,7 @@ class MainMenuStateNOVA extends MusicBeatState
 		bg.setGraphicSize(Std.int(bg.width));
 		bg.updateHitbox();
 		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.antialiasing;
+		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 		
 	    var test:AudioDisplay = new AudioDisplay(FlxG.sound.music, 0, FlxG.height, FlxG.width, Std.int(FlxG.height / 2), 100, 4, FlxColor.WHITE);
@@ -127,14 +127,14 @@ class MainMenuStateNOVA extends MusicBeatState
 		magenta.updateHitbox();
 		magenta.screenCenter();
 		magenta.visible = false;
-		magenta.antialiasing = ClientPrefs.antialiasing;
+		magenta.antialiasing = ClientPrefs.data.antialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 		
 		
 		logoBl = new FlxSprite(0, 0);
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-		logoBl.antialiasing = ClientPrefs.antialiasing;
+		logoBl.antialiasing = ClientPrefs.data.antialiasing;
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.offset.x = 0;
@@ -172,7 +172,7 @@ class MainMenuStateNOVA extends MusicBeatState
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;			
-			menuItem.antialiasing = ClientPrefs.antialiasing;
+			menuItem.antialiasing = ClientPrefs.data.antialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
 			
@@ -202,20 +202,20 @@ class MainMenuStateNOVA extends MusicBeatState
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0,  "Psych Extended" + " v " + PsychExtendedVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		versionShit.antialiasing = ClientPrefs.antialiasing;
+		versionShit.antialiasing = ClientPrefs.data.antialiasing;
 		add(versionShit);
 		versionShit.cameras = [camHUD];
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0,  "NovaFlare Engine" + " v " + novaFlareEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		versionShit.antialiasing = ClientPrefs.antialiasing;
+		versionShit.antialiasing = ClientPrefs.data.antialiasing;
 		add(versionShit);
 		versionShit.cameras = [camHUD];
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin'" + " v " + '0.2.8', 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		versionShit.antialiasing = ClientPrefs.antialiasing;
+		versionShit.antialiasing = ClientPrefs.data.antialiasing;
         versionShit.cameras = [camHUD];
 		// NG.core.calls.event.logEvent('swag').send();
 

@@ -43,7 +43,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Modpack Folder',
 			'If checked, game uses modpack folder instead of mods folder.',
-			'data.Modpack',
+			'Modpack',
 			'bool',
 			false);
 		addOption(option);
@@ -157,6 +157,6 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 
 	function onChangeHitsoundVolume()
 	{
-		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.hitsoundVolume);
+		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.data.hitsoundVolume);
 	}
 }

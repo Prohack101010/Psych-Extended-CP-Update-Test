@@ -76,7 +76,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.color = 0xFFea71fd;
 		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.antialiasing;
+		bg.antialiasing = ClientPrefs.data.antialiasing;
 		add(bg);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
@@ -156,7 +156,7 @@ class ControlsSubState extends MusicBeatSubstate {
 
 			if(controls.ACCEPT && nextAccept <= 0) {
 				if(optionShit[curSelected][0] == defaultKey) {
-					ClientPrefs.keyBinds = ClientPrefs.defaultKeys.copy();
+					ClientPrefs.keyBinds = ClientPrefs.data.defaultKeys.copy();
 					reloadKeys();
 					changeSelection();
 					FlxG.sound.play(Paths.sound('confirmMenu'));

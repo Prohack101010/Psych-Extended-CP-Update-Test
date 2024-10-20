@@ -40,7 +40,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Freeplay Menu Style:',
 			"Choose your Freeplay Menu Style",
-			'data.FreeplayStyle',
+			'FreeplayStyle',
 			'string',
 			'Psych',
 			['Psych', 'NovaFlare', 'NF']);
@@ -48,7 +48,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Main Menu Style:',
 			"Choose your Main Menu Style",
-			'data.MainMenuStyle',
+			'MainMenuStyle',
 			'string',
 			'1.0',
 			['1.0', 'NovaFlare', '0.6.3', 'Extended']);
@@ -56,7 +56,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Pause Menu Style:',
 			"Choose your Pause Menu Style",
-			'data.PauseMenuStyle',
+			'PauseMenuStyle',
 			'string',
 			'Psych',
 			['Psych', 'NovaFlare']);
@@ -64,7 +64,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Transition Style:',
 			"Choose your Transition Style",
-			'data.TransitionStyle',
+			'TransitionStyle',
 			'string',
 			'Psych',
 			['Psych', 'NovaFlare', 'Extended']);
@@ -72,7 +72,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Note Skin:',
 			"Choose Note Skin",
-			'data.NoteSkin',
+			'NoteSkin',
 			'string',
 			'original',
 			noteSkinList);	
@@ -83,7 +83,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		#if (!INDIECROSS_FORCED && INDIECROSS_ASSETS)
 		var option:Option = new Option('Indie Cross Menus',
 			'If unchecked, Indie Cross Mods not using Custom Menus (if you have any bug disable this).',
-			'data.IndieCrossMenus',
+			'IndieCrossMenus',
 			'bool',
 			true);
 		addOption(option);
@@ -164,7 +164,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		
 		var option:Option = new Option('Main Menu Song:',
 			"What song do you prefer for the Main Menu?",
-			'data.FreakyMenu',
+			'FreakyMenu',
 			'string',
 			'Extended',
 			['Extended', 'Psych']);
@@ -193,10 +193,10 @@ class VisualsUISubState extends BaseOptionsMenu
 	var changedMusic:Bool = false;
 	function onChangePauseMusic()
 	{
-		if(ClientPrefs.pauseMusic == 'None')
+		if(ClientPrefs.data.pauseMusic == 'None')
 			FlxG.sound.music.volume = 0;
 		else
-			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.pauseMusic)));
+			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.data.pauseMusic)));
 
 		changedMusic = true;
 	}
@@ -223,7 +223,7 @@ class VisualsUISubState extends BaseOptionsMenu
 	function onChangeFPSCounter()
 	{
 		if(Main.fpsVar != null)
-			Main.fpsVar.visible = ClientPrefs.showFPS;
+			Main.fpsVar.visible = ClientPrefs.data.showFPS;
 	}
 	
 	function onChangeNoteSkin()
@@ -233,7 +233,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		grpNote = new FlxTypedGroup<FlxSprite>();
 		add(grpNote);
 		
-		for (i in 0...ClientPrefs.arrowHSV.length) {
+		for (i in 0...ClientPrefs.data.arrowHSV.length) {
 			var notes:FlxSprite = new FlxSprite((i * 125), 100);
 			if (ClientPrefs.data.NoteSkin == 'original')
 			    notes.frames = Paths.getSparrowAtlas('NOTE_assets');
@@ -244,14 +244,14 @@ class VisualsUISubState extends BaseOptionsMenu
 			notes.animation.play('idle');
 			notes.scale.set(0.8, 0.8);
 			notes.x += 700;
-			notes.antialiasing = ClientPrefs.antialiasing;
+			notes.antialiasing = ClientPrefs.data.antialiasing;
 			grpNote.add(notes);
 			
 			var newShader:ColorSwap = new ColorSwap();
 			notes.shader = newShader.shader;
-			newShader.hue = ClientPrefs.arrowHSV[i][0] / 360;
-			newShader.saturation = ClientPrefs.arrowHSV[i][1] / 100;
-			newShader.brightness = ClientPrefs.arrowHSV[i][2] / 100;	    
+			newShader.hue = ClientPrefs.data.arrowHSV[i][0] / 360;
+			newShader.saturation = ClientPrefs.data.arrowHSV[i][1] / 100;
+			newShader.brightness = ClientPrefs.data.arrowHSV[i][2] / 100;	    
 		}
 	}
 }

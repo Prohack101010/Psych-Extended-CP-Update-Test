@@ -487,7 +487,7 @@ class TitleState extends MusicBeatState
     					MusicBeatState.switchState(new OutdatedState());
     				} else {
                 		#if (INDIECROSS_ASSETS || INDIECROSS_FORCED)
-                	    if (ClientPrefs.data.IndieCrossMenus && Paths.currentModDirectory.startsWith('Indie Cross')) //I dont have a Better Solution for now
+                	    if (ClientPrefs.IndieCrossMenus && Paths.currentModDirectory.startsWith('Indie Cross')) //I dont have a Better Solution for now
                 	        TitleState.IndieCrossEnabled = true;
                 	    #end
                 	    CustomSwitchState.switchMenus('MainMenu');

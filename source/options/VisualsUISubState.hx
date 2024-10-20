@@ -217,7 +217,7 @@ class VisualsUISubState extends BaseOptionsMenu
 	    if (!TitleState.IndieCrossEnabled && Paths.currentModDirectory.startsWith('Indie Cross'))
             TitleState.IndieCrossEnabled = true;
         else if (TitleState.IndieCrossEnabled)
-	        TitleState.IndieCrossEnabled = ClientPrefs.data.IndieCrossMenus;
+	        TitleState.IndieCrossEnabled = ClientPrefs.IndieCrossMenus;
 	}
 
 	function onChangeFPSCounter()

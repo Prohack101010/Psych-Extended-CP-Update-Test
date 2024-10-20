@@ -16,7 +16,6 @@ class SaveVariables {
     public var FreeplayStyle:String = 'Psych';
     public var PauseMenuStyle:String = 'Psych';
     public var FreakyMenu:String = 'Extended';
-    public var TransitionStyle:String = 'Psych';
     public var MainMenuStyle:String = '1.0';
 	public var downScroll:Bool = false;
 	public var marvelousRating:Bool = true;	
@@ -37,11 +36,9 @@ class SaveVariables {
 	public var healthBarAlpha:Float = 1;
 	public var hitsoundVolume:Float = 0;
 	public var pauseMusic:String = 'Tea Time';
-	public var comboStacking = true;
+	public var comboStacking:Bool = true;
 	//Psych Extended
-	public var touchmenus:Bool = #if UNUSED_TOUCHMENUS true #else false #end;
 	public var Modpack:Bool = false;
-	public var IndieCrossMenus:Bool = #if (INDIECROSS_FORCED || INDIECROSS_ASSETS) true #else false #end;
 	//Mobile
 	public var mobileC:Bool = true; //better than using if mobile
 	//VirtualPad
@@ -54,12 +51,11 @@ class SaveVariables {
     public var extraKeyReturn2:String = 'SHIFT';
     public var extraKeyReturn3:String = 'Q';
     public var extraKeyReturn4:String = 'E';
-	public var hitboxhint = false;
-	public var hitboxmode:String = 'New';  //starting new way to change between hitboxes yay
+	public var hitboxhint:Bool = false;
+	public var hitboxmode:String = 'New';
 	public var hitboxtype:String = 'Gradient';
 	public var extraKeys:Int = 2;
 	public var hitboxLocation:String = 'Bottom';
-	public var hitboxalpha:Float = #if mobile 0.7 #else 0 #end; //someone request this lol
 	public var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -111,6 +107,9 @@ class ClientPrefs {
 	#if android
 	public static var storageType:String = "EXTERNAL_DATA";
 	#end
+	public static var TransitionStyle:String = 'Psych';
+	public static var IndieCrossMenus:Bool = #if (INDIECROSS_FORCED || INDIECROSS_ASSETS) true #else false #end;
+	public static var hitboxalpha:Float = #if mobile 0.7 #else 0 #end; //someone request this lol
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
@@ -161,6 +160,9 @@ class ClientPrefs {
 		#if android
 		FlxG.save.data.storageType = storageType;
 		#end
+		FlxG.save.data.TransitionStyle = TransitionStyle;
+		FlxG.save.data.IndieCrossMenus = IndieCrossMenus;
+		FlxG.save.data.hitboxalpha = hitboxalpha;
 		#if ACHIEVEMENTS_ALLOWED Achievements.save(); #end
 		FlxG.save.flush();
 
@@ -216,6 +218,12 @@ class ClientPrefs {
 		if(FlxG.save.data.storageType != null)
 			storageType = FlxG.save.data.storageType;
 		#end
+		if(FlxG.save.data.TransitionStyle != null)
+			TransitionStyle = FlxG.save.data.TransitionStyle;
+		if(FlxG.save.data.IndieCrossMenus != null)
+			IndieCrossMenus = FlxG.save.data.IndieCrossMenus;
+		if(FlxG.save.data.hitboxalpha != null)
+			hitboxalpha = FlxG.save.data.hitboxalpha;
 
 		if(FlxG.save.data.gameplaySettings != null) {
 			var savedMap:Map<String, Dynamic> = FlxG.save.data.gameplaySettings;
